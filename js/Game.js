@@ -21,8 +21,11 @@ class Game {
      * @return {object} Phrase object chosen to be used 
      * 
      */
-    getRandomPhrase(phrase){
-
+    getRandomPhrase(){
+        const phraseArray = this.phrases;
+        const phraseArrayLength = this.phrases.length
+        const randomNumber = Math.floor(Math.random() * phraseArrayLength);
+        return phraseArray[randomNumber];
     };
 
 }

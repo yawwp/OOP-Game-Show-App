@@ -6,14 +6,13 @@ class Game {
     constructor(){
         this.missed = 0;
         this.activePhrase = null;
-        this.phrases = 
-            [    
-                {phrase:'Never underestimate the big importance of small things'},
-                {phrase:'Do not fear failure but rather fear not trying'},
-                {phrase:'It does not matter how slowly you go as long as you do not stop'},
-                {phrase:'An ounce of action is worth a ton of theory'},
-                {phrase:'It does not do to dwell on dreams and forget to live'}
-            ];
+        this.phrases = [
+            {phrase:'importance of small things'},
+            {phrase:'do not fear failure'},
+            {phrase:'as long as you get there'},
+            {phrase:'an ounce of action'},
+            {phrase:'dreams versus reality'}
+        ];
     }
     
     /**
@@ -28,4 +27,10 @@ class Game {
         return phraseArray[randomNumber];
     };
 
+    startGame(){
+        const overlay = document.getElementById('overlay');
+        this.getRandomPhrase();
+    };
+
 }
+

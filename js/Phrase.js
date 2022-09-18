@@ -3,24 +3,40 @@
  * Phrase.js */
 
 // const phrases = [
-//     {quote: 'Never underestimate the big importance of small things'},
-//     {quote:'Do not fear failure but rather fear not trying'},
-//     {quote:'It does not matter how slowly you go as long as you do not stop'},
-//     {quote:'An ounce of action is worth a ton of theory'},
-//     {quote: 'It does not do to dwell on dreams and forget to live'}
+//     {quote:'importance of small things'},
+//     {quote:'do not fear failure'},
+//     {quote:'as long as you get there'},
+//     {quote:'an ounce of action'},
+//     {quote:'dreams versus reality'}
 // ];
 
 
 
 class Phrase {
     constructor (phrase){
-        this.phrase = phrase.toLowerCase();
+        this.phrase = phrase;
     };
 
     /**
     * Display phrase on game board
     */
     addPhraseToDisplay(){
-        console.log('Hi');
+        let array = [];
+        array.push(this.phrase);
+        let array2 = array[0].split(''); //https://stackoverflow.com/questions/27303655/split-is-not-a-function-on-array
+        const ul = document.getElementById('phrase').firstElementChild;
+        
+        array2.forEach(letter => {
+            const li = document.createElement('li');
+            if (letter === " ") {
+                li.classList.add('hide', 'space'); 
+                li.textContent = letter;
+            } else {
+                li.classList.add('hide', 'letter', letter); 
+                li.textContent = letter;
+            }
+            ul.appendChild(li);
+        })
     };
+
 }

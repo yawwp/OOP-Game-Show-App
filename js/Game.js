@@ -29,7 +29,13 @@ class Game {
 
     startGame(){
         const overlay = document.getElementById('overlay');
-        this.getRandomPhrase();
+        const start = document.getElementById('btn__reset');
+        this.activePhrase = game.getRandomPhrase();
+
+        start.addEventListener('click', (e) => {
+            overlay.style.display = 'none';
+            }
+        );
     };
 
 }

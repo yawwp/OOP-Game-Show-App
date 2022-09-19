@@ -23,9 +23,8 @@ class Phrase {
     addPhraseToDisplay(){
         let array = [];
         array.push(this.phrase);
-        let array2 = array[0].split(''); //https://stackoverflow.com/questions/27303655/split-is-not-a-function-on-array
+        let array2 = array[0].split(' '); // https://stackoverflow.com/questions/27303655/split-is-not-a-function-on-array
         const ul = document.getElementById('phrase').firstElementChild;
-        
         array2.forEach(letter => {
             const li = document.createElement('li');
             if (letter === " ") {

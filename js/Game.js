@@ -34,8 +34,16 @@ class Game {
 
         start.addEventListener('click', (e) => {
             overlay.style.display = 'none';
-            }
+            }        
         );
+    };
+
+    handleInteraction(){
+        const keyboard = document.getElementById('qwerty');
+        keyboard.addEventListener('click', (e) => {
+            let select = e.target.textContent;
+            console.log(phrase);
+        })
     };
 
 }

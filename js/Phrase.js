@@ -10,11 +10,14 @@ class Phrase {
     /**
     * Display phrase on game board
     */
+
     addPhraseToDisplay(){
         let array = [];
         let selectedPhrase = game.activePhrase.phrase;
         array.push(selectedPhrase);
         let array2 = array[0].split(''); // https://stackoverflow.com/questions/27303655/split-is-not-a-function-on-array
+
+
         const ul = document.getElementById('phrase').firstElementChild;
         array2.forEach(letter => {
             const li = document.createElement('li');

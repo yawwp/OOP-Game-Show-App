@@ -42,9 +42,12 @@ class Game {
         const keyboard = document.getElementById('qwerty');
         keyboard.addEventListener('click', (e) => {
             let select = e.target.textContent;
-            console.log(phrase);
+            console.log(phrase.addPhraseToDisplay());
         })
     };
 
 }
+
+
+
 

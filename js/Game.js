@@ -40,14 +40,19 @@ class Game {
 
     handleInteraction(){
         const keyboard = document.getElementById('qwerty');
+        const keys = document.querySelectorAll('.key');
+        const li = document.querySelectorAll('.letter');
+
         keyboard.addEventListener('click', (e) => {
             let select = e.target.textContent;
-            console.log(phrase.addPhraseToDisplay());
+            for (let i=0;i<keys.length;i++){
+                if (select === keys[i].innerHTML){
+                    
+                }
+    
+            }
         })
     };
 
 }
-
-
-
 

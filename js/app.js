@@ -6,4 +6,9 @@ const game = new Game();
 game.startGame();
 const phrase = new Phrase();
 phrase.addPhraseToDisplay();
-game.handleInteraction();
+// console.log(game.activePhrase.checkLetter('a'));
+phrase.checkLetter();
+console.log(game.activePhrase.phrase);
+
+
+//game.activePhrase.checkLetter('a')

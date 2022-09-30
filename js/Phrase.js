@@ -15,7 +15,7 @@ class Phrase {
         let array = [];
         let selectedPhrase = game.activePhrase.phrase;
         array.push(selectedPhrase);
-        let letters = array[0].split(''); // https://stackoverflow.com/questions/27303655/split-is-not-a-function-on-array
+        let letters = array[0].split('');
         const ul = document.getElementById('phrase').firstElementChild;
         letters.forEach(letter => {
             const li = document.createElement('li');
@@ -31,4 +31,42 @@ class Phrase {
             ul.appendChild(li);
         })
     };
-    }
+
+
+    /**
+    * Checks if passed letter is in phrase
+    * @param (string) letter - Letter to check
+    */
+
+    // This function need to be put into the this.activePhrase
+    // this.activePhrase.checkLetter(letter);
+    checkLetter(letter) {
+        let active = game.activePhrase;
+        
+        const keyboard = document.getElementById('qwerty');
+        const keys = document.querySelectorAll('.key');
+        const letters = document.querySelectorAll('.letter');
+        
+        keyboard.addEventListener('click', (e) => {
+            let select = e.target.textContent;
+            letters.forEach((letter) => {
+                if (select === letter.innerHTML){
+                    console.log("true");
+                } else {
+                    console.log("false");
+                }
+                }
+            )
+        })
+
+    };
+
+    /**
+    * Displays passed letter on screen after a match is found
+    * @param (string) letter - Letter to display
+    */
+    showMatchedLetter(letter) {
+
+
+    };
+}

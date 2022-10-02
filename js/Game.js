@@ -7,11 +7,11 @@ class Game {
         this.missed = 0;
         this.activePhrase = null;
         this.phrases = [
-            {phrase:'importance of small things'},
-            {phrase:'do not fear failure'},
-            {phrase:'as long as you get there'},
-            {phrase:'an ounce of action'},
-            {phrase:'dreams versus reality'}
+            {phrase:'say hi'},
+            {phrase:'gotcha'},
+            {phrase:'hello there'},
+            {phrase:'puppy junior'},
+            {phrase:'fish tacos'}
         ];
     }
     
@@ -30,8 +30,8 @@ class Game {
     startGame(){
         const overlay = document.getElementById('overlay');
         const start = document.getElementById('btn__reset');
-        this.activePhrase = game.getRandomPhrase();
-        
+
+        this.activePhrase = this.getRandomPhrase();
         start.addEventListener('click', (e) => {
             overlay.style.display = 'none';
             }        
@@ -41,7 +41,6 @@ class Game {
     handleInteraction(){
     };
 }
-
 
 
 

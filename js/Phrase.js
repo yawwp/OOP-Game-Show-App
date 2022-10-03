@@ -7,6 +7,8 @@ class Phrase {
         this.phrase = phrase;
     };
 
+    
+
     /**
     * Display phrase on game board
     */
@@ -28,28 +30,29 @@ class Phrase {
     };
 
 
-    /**
+   /**
     * Checks if passed letter is in phrase
     * @param (string) letter - Letter to check
     */
     checkLetter(letter) {
-        const keyboard = document.getElementById('qwerty');
-        keyboard.addEventListener('click', (e) => {
-            if ([...this.phrase].includes(e.target.textContent)){
-                console.log("true");
-            } else {
-                console.log("false");
-            }
+        if ([...this.phrase].includes(letter)){
+            return true;
+        }   else {
+            return false;
         }
-    )};
+    };
     
     /**
     * Displays passed letter on screen after a match is found
     * @param (string) letter - Letter to display
     */
-    showMatchedLetter() {
-
-
+    showMatchedLetter(letter) {
+        const lis = document.querySelectorAll('.letter');
+        lis.forEach((li) => {
+            if(letter === li.innerHTML){
+                li.classList.remove('hide');
+                li.classList.add('show');
+            }
+        })
     };
-}
-
+};

@@ -7,6 +7,7 @@ const phrase = new Phrase();
 game.startGame();
 phrase.addPhraseToDisplay();
 
-
 game.activePhrase = new Phrase(phrase.phrase);
-game.activePhrase.checkLetter();
+let letter = this;
+game.activePhrase.checkLetter(letter);
+game.activePhrase.showMatchedLetter(letter);

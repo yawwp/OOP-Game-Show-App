@@ -47,8 +47,40 @@ class Game {
     won
     */
     checkForWin() {
-        
+        const lis = document.querySelectorAll('.letter');
+        let answer = [];
+        let guesses = [];
+        lis.forEach(li => {
+            answer.push(li.innerHTML);
+            if (li.classList.contains('show')){
+                guesses.push(li.innerHTML);
+            }
+        })
+        if (answer.every((value) => guesses.includes(value))){
+            return true;
+        } else {
+            return false; 
+        }   
     };
+
+        /**
+    * Increases the value of the missed property
+    * Removes a life from the scoreboard
+    * Checks if player has remaining lives and ends game if player is out
+    */
+    removeLife() {
+        const lives = document.querySelectorAll(".tries");
+        lives.forEach(live => {
+            live.src="images/lostHeart.png"
+        })
+    };
+
+
+        /**
+    * Displays game over message
+    * @param {boolean} gameWon - Whether or not the user won the game
+    */
+    gameOver(gameWon) {};
 
 }
 

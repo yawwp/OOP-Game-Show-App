@@ -69,12 +69,10 @@ class Game {
     * Checks if player has remaining lives and ends game if player is out
     */
     removeLife() {
-        const lives = document.querySelectorAll(".tries");
-        lives.forEach(live => {
-            live.src="images/lostHeart.png"
-        })
-    };
-
+        let imgs = document.querySelectorAll('img');
+        console.log([...imgs]);
+        
+    }
 
         /**
     * Displays game over message

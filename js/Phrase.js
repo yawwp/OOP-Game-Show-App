@@ -1,10 +1,12 @@
 /* Treehouse FSJS Techdegree
-* Project 4 - OOP Game App
-* Phrase.js */
+ * Project 4 - OOP Game App
+ * Phrase.js */
+
 class Phrase {
     constructor (phrase){
         this.phrase = phrase;
     };
+
     /**
     * Display phrase on game board
     */
@@ -14,16 +16,18 @@ class Phrase {
         [...selectedPhrase].forEach(letter => {
             const li = document.createElement('li');
             if (letter === " ") {
-                li.classList.add('hide', 'space');
+                li.classList.add('hide', 'space'); 
                 li.textContent = letter;
             } else {
-                li.classList.add('hide', 'letter', letter);
+                li.classList.add('hide', 'letter', letter); 
                 li.textContent = letter;
             }
             ul.appendChild(li);
             this.phrase = selectedPhrase;
         });
     };
+
+
    /**
     * Checks if passed letter is in phrase
     * @param (string) letter - Letter to check
@@ -35,6 +39,7 @@ class Phrase {
             return false;
         }
     };
+    
     /**
     * Displays passed letter on screen after a match is found
     * @param (string) letter - Letter to display

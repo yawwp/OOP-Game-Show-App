@@ -6,7 +6,12 @@ class Game {
     constructor(){
         this.missed = 0;
         this.activePhrase = null;
-        this.phrases = [];
+        this.phrases = [
+            {phrase:'say hi'},
+            {phrase:'hello there'},
+            {phrase:'puppy junior'},
+            {phrase:'fish tacos'},
+            {phrase:'gotcha'}];
     }
     
     /**
@@ -136,6 +141,5 @@ class Game {
         }
     };
 }
-
 
 

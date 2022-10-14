@@ -6,7 +6,6 @@ class Phrase {
     constructor (phrase){
         this.phrase = phrase;
     };
-
     /**
     * Display phrase on game board
     */

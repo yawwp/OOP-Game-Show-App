@@ -31,50 +31,45 @@ class Game {
         const start = document.getElementById('btn__reset');
 
         this.activePhrase = this.getRandomPhrase();
-        start.addEventListener('click', (e) => {
-            overlay.style.display = 'none';
-            this.getRandomPhrase();
+        overlay.style.display = 'none';
+        this.getRandomPhrase();
 
-            const button = document.getElementsByClassName('key');
-                for (let i=0; i<button.length;i++){
-                    button[i].disabled = false;
-                    button[i].classList.remove('chosen');
-                    button[i].classList.remove('wrong');
-                }
+        const button = document.getElementsByClassName('key');
+            for (let i=0; i<button.length;i++){
+                button[i].disabled = false;
+                button[i].classList.remove('chosen');
+                button[i].classList.remove('wrong');
+            }
 
-            const lis = document.querySelectorAll('.letter');
-            lis.forEach(li => li.remove());
-            phrase.addPhraseToDisplay();
+        const lis = document.querySelectorAll('.letter');
+        lis.forEach(li => li.remove());
+        phrase.addPhraseToDisplay();
             
-            this.missed = 0;
-            const imgs = document.querySelectorAll('img');
-            const lives = [...imgs];
-            imgs.forEach(img => img.src = 'images/liveHeart.png');
+        this.missed = 0;
+        const imgs = document.querySelectorAll('img');
+        const lives = [...imgs];
+        imgs.forEach(img => img.src = 'images/liveHeart.png');
 
-            });
-        }
+    };
     /**
     * Handles onscreen keyboard button clicks
     * @param (HTMLButtonElement) button - The clicked button element
     */
-    handleInteraction(button) {
-        button = document.getElementsByClassName('key');
-        for (let i=0; i<button.length;i++){
-            button[i].addEventListener('click', (e) => {
-                let select = e.target.innerHTML;
-                if (phrase.checkLetter(select)){
-                    phrase.showMatchedLetter(select);
-                    button[i].disabled = true;
-                    button[i].classList.add('chosen');
+    handleInteraction(button){
+                if (phrase.checkLetter(button.innerHTML)){
+                    phrase.showMatchedLetter(button.innerHTML);
+                    button.disabled = true;
+                    button.classList.add('chosen');
+                    if(this.checkForWin()){
+                        return this.gameOver(this.checkForWin());
+                    }
                 } else {
-                    button[i].disabled = true;
-                    button[i].classList.add('wrong');
+                    button.disabled = true;
+                    button.classList.add('wrong');
                     this.removeLife();
                 }
-                this.gameOver(this.checkForWin());
+
             }
-        )}
-    };
 
     /**
     * Checks for winning move
@@ -108,23 +103,14 @@ class Game {
         const title = document.querySelector(".title");
         const imgs = document.querySelectorAll('img');
         const lives = [...imgs];
-
-        if(this.missed !== lives.length-1){
+        if(this.missed !== lives.length){
             lives[this.missed].src = 'images/lostHeart.png';
             this.missed++;
-        } else{
-            over.innerHTML = "Sorry, better luck next time!"
-            over.classList.add('title');
-            overlay.style.display = 'block';
-            overlay.classList.add('lose');
-            this.missed = 0;
-            if (this.missed === 0){
-                imgs.forEach(img => img.src = 'images/liveHeart.png');
-                }
-            }
-
+                if (this.missed === lives.length){
+                    this.gameOver(this.checkForWin());
+                };
         };
-
+    };
         /**
     * Displays game over message
     * @param {boolean} gameWon - Whether or not the user won the game
@@ -138,8 +124,12 @@ class Game {
             overlay.classList.remove('lose');
             overlay.classList.add('win');
             overlay.style.display = 'block';
+        } else {
+            over.innerHTML = "Sorry, better luck next time!"
+            over.classList.add('title');
+            overlay.style.display = 'block';
+            overlay.classList.add('lose');
+            this.missed = 0;
         }
-    };
+    }
 }
-
-
